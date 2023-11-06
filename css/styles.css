@@ -1,41 +1,12 @@
 * {
     font-family: 'Montserrat', sans-serif;
-}  
-.productos {
-    display: flex;
-    height: 100vh;
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 20px;
-    flex-direction: column;
 }
 
-.productos h1 {
-  display: flex;
-  justify-content: flex-start;
-  font-size: 30px;
-}
+/* HEADER */
+
 .bi-cart{
   height: 30px;
   width: 30px;
-}
-#boton {
-    font-weight: 600;
-}
-
-#offcanvasNavbar {
-    --bs-offcanvas-width: 700px;
-}
-
-#hero {
-  width: 100%;
-  padding-top: 42px;
-}
-
-#hero img {
-  width: 100%;
-  height: 580px;
 }
 
 nav div a img {
@@ -49,20 +20,23 @@ nav div a img:hover {
   transform: scale(1.1, 1.1);
 }
 
-#separador {
-  color: #000000;
-  height: 1px;
-  width: 100%;
-  background-color: #000000;
+nav div a {
+  font-size: 26px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
+nav div a:hover{
+  color: rgb(158, 105, 0);
+}
 
 .navbar {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.29);
 
 }
-
-
 
 .offcanvas-body {
     background-color: #ffffff23;
@@ -72,56 +46,30 @@ nav div a img:hover {
     background-color: rgb(252, 217, 64);
 }
 
-.card-container {
-    align-items: center;
-    width: 100%;
+.productos {
     display: flex;
-    flex-direction: row;
-    gap: 80px;
-    height: 600px;
-    justify-content: space-around;
-}
-
-.card {
-    height: auto;
-    width: 450px;
-    padding: 28px;
-    background-color: white;    
-   }
-
-.card-content {
-    flex-direction: column;
-    height: 460px;
-    width: 300px;
+    height: 90vh;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
     padding: 20px;
-    display: flex;
-    background: #e0e0e0;
-    border-radius: 30px;
-    box-shadow: 20px 20px 60px #bebebe,
-                  -20px -20px 60px #ffffff;
+    flex-direction: column;
 }
 
-.card-content img {
-    align-items: center;
-    border-radius: 15px;
-    width: 100%;
-    object-fit: cover;
-    height: auto;
-    margin-bottom: 20px;
+.productos h1 {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+#boton {
+    font-weight: 600;
 }
 
-.card-content p , h2 {
-    text-align: start;
-    margin-top: 10px;
+#offcanvasNavbar {
+  --bs-offcanvas-width: 700px;
 }
 
-main h1 {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 120px;
-}
-
-/* botones */
+/* BUTTONS */
 
 .button {
     position: relative;
@@ -181,21 +129,171 @@ main h1 {
   .button:active {
     border: 1px solid #c9c4c4;
   }
+  
+  .bi-trash3-fill {
+    color: red;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .bi-trash3-fill:hover {
+    color: rgb(138, 27, 27);
+  
+  }
 
-  /* div dolar */
+  /* CARDS */
+  
+  .card-container {
+      align-items: center;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 80px;
+      height: 600px;
+      justify-content: space-around;
+  }
+  
+  .card {
+      height: auto;
+      width: 450px;
+      padding: 28px;
+      background-color: white;    
+     }
+  
+  .card-content {
+      flex-direction: column;
+      height: 460px;
+      width: 300px;
+      padding: 20px;
+      display: flex;
+      background: #e0e0e0;
+      border-radius: 30px;
+      box-shadow: 20px 20px 60px #bebebe,
+                    -20px -20px 60px #ffffff;
+  }
+  
+  .card-content img {
+      align-items: center;
+      border-radius: 15px;
+      width: 100%;
+      object-fit: cover;
+      height: auto;
+      margin-bottom: 20px;
+  }
+  
+  .card-content p , h2 {
+      text-align: start;
+      margin-top: 10px;
+  }
+
+  /* HERO */
+
+  .size {
+    height: 100vh;
+  }
+
+#hero {
+  width: 100%;
+  padding-top: 42px;
+}
+
+#hero img {
+  width: 100%;
+  height: 580px;
+}
+
+
+#separador {
+  color: #000000;
+  height: 1px;
+  width: 100%;
+  background-color: #000000;
+}
+
+main h1 {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 120px;
+}
+
+
+/* DOLAR API */
 
   .dolar {
+    justify-content: center;
     display: flex;
     flex-wrap: nowrap;
   }
 
-  #cotizacion {
-    display: flex;
-    width: 300px;
-    height: 200px;
-    flex-direction: row;
-    background-color: #ebe8e8;
+  
+  
+  #usd {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    padding-top: 5px;
   }
+  
+  #cotizacion {
+    border: 2px solid black;
+    display: flex;
+    width: 700px;
+    height: 150px;
+    flex-direction: row;
+    background-color: rgb(51, 99, 51);
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  #cotizacion p {
+    font-size: 25px;
+    color: rgb(253, 253, 253);
+    display: flex;
+  }
+  
+  #cotizacion span {
+    align-items: baseline;
+    display: flex;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+  
+  .dolarblue {
+    justify-content: center;
+    font-size: 30px;
+    padding: 30PX;
+  }
+  
+  .container-dolar {
+    justify-content: center;
+    border: 1px solid #000000;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+  
+  .colorcust {
+    border: 2px solid black;
+    display: flex;
+    width: 700px;
+    height: 150px;
+    flex-direction: row;
+    align-items: baseline;
+    background-color: rgb(219, 179, 104);
+  }
+
+  .colorcust p {
+    padding: 5px;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    font-weight: 600;
+  }
+  
+  /* CARRITO */
 
   .cart-container {
     border-radius: 30px;
@@ -229,17 +327,4 @@ main h1 {
   display: flex;
   width: 50px;
   height: 40px;
-}
-
-
-
-.bi-trash3-fill {
-  color: red;
-  width: 30px;
-  height: 30px;
-}
-
-.bi-trash3-fill:hover {
-  color: rgb(138, 27, 27);
-
 }
