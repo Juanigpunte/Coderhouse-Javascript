@@ -186,10 +186,13 @@ nav div a:hover{
       margin-top: 10px;
   }
 
+  #psus div h2 {
+    font-size: 28px;
+  }
   /* HERO */
 
   .size {
-    height: 100vh;
+    height: auto;
   }
 
 #hero {
@@ -286,7 +289,8 @@ main h1 {
   }
 
   .colorcust p {
-    padding: 5px;
+    margin: auto;
+    padding: 8px;
     font-size: 25px;
     color: rgb(0, 0, 0);
     display: flex;
