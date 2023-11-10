@@ -40,7 +40,7 @@
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body" id="cart">
+                    <div class="offcanvas-body" id="cartContainer">
                     </div>
                 </div>
             </div>
@@ -51,12 +51,10 @@
         <h1>Productos en stock</h1>
         <span id="separador"></span>
         <section>
-            <section class="container" id="cpus"></section>
-            <section class="container" id="gpus"></section>
-            <section class="container" id="psus"></section>
-            <section class="container" id="mothers"></section>
+            <section class="container">
+                <section class="card-container" id="root"></section>
+            </section>
         </section>
-
     </main>
 
 
