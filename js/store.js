@@ -10,7 +10,7 @@ const productos = [
     },
     {
         id: "1",
-        nombre: 'MSI H510M PRO-E',
+        nombre: 'MSI H510M PRO-E LGA 1200',
         price: 165,
         thumbnail: '../images/Mother_MSI_H510M_PRO-E_DDR4_LGA_1200_89a861ba-grn.jpg',
         categoria: 'motherboards',
@@ -95,9 +95,8 @@ const productos = [
     },];
 
 
-//Selecciono el root para renderizar mis productos
+//Selecciono el id "root" para renderizar mis productos
 const shopProducts = document.querySelector('#root')
-
 
 //Recorro mis productos y creo la card para cada item
 productos.forEach((productos) => {
@@ -116,25 +115,45 @@ productos.forEach((productos) => {
 
     //boton para agregar al carrito
     let comprar = document.createElement("button")
-    comprar.innerText = "Comprar";
-    // comprar.className = "button";
+    let span1 = document.createElement("span")
+    let span2 = document.createElement("span")
+
+    span1.innerText = "Comprar";
+
+
+    //agrego los span para los estilos del boton
+    comprar.className = "button";
+    span1.setAttribute('class', 'button__text');
+    span2.setAttribute('class' , 'button__icon')
+
+    span2.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
+    `;
+
+    comprar.append(span1, span2)
 
     div.append(comprar);
     shopProducts.append(div);
 
     comprar.addEventListener("click", () => {
-        comprar.innerText = "Agregado";
+        let textoOriginal = comprar.innerHTML;
+        span1.innerText = "Agregado";
         carrito.push({
             id: productos.id,
             thumbnail: productos.thumbnail,
             nombre: productos.nombre,
             price: productos.price,
         });
+
+        //timeout para volver al texto original del boton, una vez agregado
+        setTimeout(function() {
+            comprar.innerHTML = textoOriginal;
+          }, 3000);
+
         guardarCarrito();
         showCartItems()
         alertaAgregadoAlCarrito()
     })
-
 
 })
 

@@ -141,7 +141,57 @@ nav div a:hover{
   
   }
 
+  .card-body a {
+    margin-top: 30px;
+    text-decoration: none;
+    color: #000000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    transition: 0.3s;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  .card-body a:focus,
+  .card-body a:hover {
+    color: #000000;
+  }
+  
+  .card-body a:focus:after,
+  .card-body a:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  .card-body a:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #000000;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
+
   /* CARDS */
+
+  #mothers{
+    margin-top: 50px;
+  }
   
   .card-container {
       margin-top: 30px;
@@ -326,13 +376,3 @@ main h1 {
   border-radius: 30px;
 }
 
-.card-body a {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #ebe8e8;
-  display: flex;
-  width: 50px;
-  height: 40px;
-}
