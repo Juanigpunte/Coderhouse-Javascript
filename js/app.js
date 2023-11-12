@@ -1,3 +1,4 @@
+/*-- PRODUCTOS DE MUESTRA PARA EL INDEX --*/
 const motherboards = [
     {
     id: "mother1",
@@ -21,8 +22,8 @@ const motherboards = [
 ];
 
 
-// Card
 
+/*-- CARDS DE MIS PRODUCTOS --*/
 const Card = (props) => {
     let { id, nombre, price, thumbnail } = props;
     let div = document.createElement('div');
@@ -41,8 +42,7 @@ const Card = (props) => {
   
   }
 
-  //Containers de productos
-
+/*-- CREO EL CONTENEDOR DE MIS CARDS Y LAS APENDEO CON UN FOR EACH --*/
 const mothersContainer = (props) => {
 
     let { mothers } = props;
@@ -58,12 +58,13 @@ const mothersContainer = (props) => {
     return section;
 }
 
+/*-- RENDERIZO MI CONTENEDOR CON LAS CARDS EN EL DOM --*/
 let appMothers = document.querySelector('#mothers');
 appMothers.append(mothersContainer({mothers: motherboards}));
-// mostrarProductos();
 
-//Api dolar
 
+
+/*-- Traigo con fetch una api de la cotizacion del dolar --*/
 fetch("https://dolarapi.com/v1/dolares/blue")
   .then(response => response.json())
   .then(data => {
