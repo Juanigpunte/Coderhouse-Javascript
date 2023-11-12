@@ -6,6 +6,7 @@ const productos = [
         price: 153,
         thumbnail: '../images/Mother_Gigabyte_B450M_DS3H_V2_DDR4_AM4_22c8d45a-grn.jpg',
         categoria: 'motherboards',
+        cantidad: 1,
 
     },
     {
@@ -14,6 +15,7 @@ const productos = [
         price: 165,
         thumbnail: '../images/Mother_MSI_H510M_PRO-E_DDR4_LGA_1200_89a861ba-grn.jpg',
         categoria: 'motherboards',
+        cantidad: 1,
     },
     {
         id: "2",
@@ -21,6 +23,7 @@ const productos = [
         price: 190,
         thumbnail: '../images/Mother_MSI_X670-P_PRO_WIFI_AM5_be20ca6c-grn.jpg',
         categoria: 'motherboards',
+        cantidad: 1,
     },
     {
         id: "3",
@@ -28,6 +31,7 @@ const productos = [
         price: 252,
         thumbnail: '../images/AMD_Ryzen_5_5600X_4.6GHz_Turbo_AM4___Wraith_Stealth_Cooler_f737ec9f-grn.jpg',
         categoria: 'procesadores',
+        cantidad: 1,
 
     },
     {
@@ -36,6 +40,7 @@ const productos = [
         price: 290,
         thumbnail: '../images/Procesador_AMD_Ryzen_7_7700X_5.4GHz_Turbo_AM5_-_No_incluye_Cooler_-_C_VIDEO_5db10196-grn.jpg',
         categoria: 'procesadores',
+        cantidad: 1,
 
     },
     {
@@ -44,6 +49,7 @@ const productos = [
         price: 350,
         thumbnail: '../images/Intel_Core_i7_11700KF_5.0GHz_Turbo_Socket_1200_Rocket_Lake_56a482fd-grn.jpg',
         categoria: 'procesadores',
+        cantidad: 1,
     },
 
 
@@ -54,6 +60,7 @@ const productos = [
         price: 450,
         thumbnail: '../images/Placa_de_Video_ASUS_GeForce_RTX_3060_TI_8GB_GDDR6_TUF_GAMING_OC_V2_6be149e2-grn.jpg',
         categoria: 'graficas',
+        cantidad: 1,
     },
     {
         id: "7",
@@ -61,6 +68,7 @@ const productos = [
         price: 680,
         thumbnail: '../images/ASUS_GeForce_RTX_4070_12GB_GDDR6X_Dual_White_OC_faa85c69-grn.jpg',
         categoria: 'graficas',
+        cantidad: 1,
     },
     {
         id: "8",
@@ -68,6 +76,7 @@ const productos = [
         price: 600,
         thumbnail: '../images/Placa_de_Video_XFX_Radeon_RX_6750_XT_ULTRA_12GB_GDDR6_Speedster_03492b8c-grn.jpg',
         categoria: 'graficas',
+        cantidad: 1,
     },
     {
         id: "9",
@@ -75,6 +84,7 @@ const productos = [
         price: 70,
         thumbnail: '../images/Fuente_Be_Quiet__600W_80_Plus_Bronze_U9_06c10bd9-grn.jpg',
         categoria: 'fuentes',
+        cantidad: 1,
 
     },
     {
@@ -83,6 +93,7 @@ const productos = [
         price: 170,
         thumbnail: '../images/Fuente_ASUS_ROG_STRIX_1000W_80_Plus_Gold_Full_Modular_1000G_8c2a799c-grn.jpg',
         categoria: 'fuentes',
+        cantidad: 1,
 
     },
     {
@@ -91,10 +102,12 @@ const productos = [
         price: 60,
         thumbnail: '../images/Fuente_Gigabyte_450W_80_Plus_Bronze_P450B_800859dd-grn.jpg',
         categoria: 'fuentes',
+        cantidad: 1,
 
     },];
 
 
+/*---------------------------- DOM DE LA TIENDA ----------------------------*/
 //Selecciono el id "root" para renderizar mis productos
 const shopProducts = document.querySelector('#root')
 
@@ -124,7 +137,7 @@ productos.forEach((productos) => {
     //agrego los span para los estilos del boton
     comprar.className = "button";
     span1.setAttribute('class', 'button__text');
-    span2.setAttribute('class' , 'button__icon')
+    span2.setAttribute('class', 'button__icon')
 
     span2.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -136,19 +149,32 @@ productos.forEach((productos) => {
     shopProducts.append(div);
 
     comprar.addEventListener("click", () => {
+
         let textoOriginal = comprar.innerHTML;
         span1.innerText = "Agregado";
-        carrito.push({
-            id: productos.id,
-            thumbnail: productos.thumbnail,
-            nombre: productos.nombre,
-            price: productos.price,
-        });
+
+        const productoRepetido = carrito.some((productoRepe) => productoRepe.id === productos.id);
+
+        if (productoRepetido) {
+            carrito.map((prod) => {
+                if (prod.id === productos.id) {
+                    prod.cantidad++;
+                }
+            })
+
+        } else
+            carrito.push({
+                id: productos.id,
+                thumbnail: productos.thumbnail,
+                nombre: productos.nombre,
+                price: productos.price,
+                cantidad: productos.cantidad,
+            });
 
         //timeout para volver al texto original del boton, una vez agregado
-        setTimeout(function() {
+        setTimeout(function () {
             comprar.innerHTML = textoOriginal;
-          }, 3000);
+        }, 3000);
 
         guardarCarrito();
         showCartItems()
@@ -160,7 +186,7 @@ productos.forEach((productos) => {
 
 /*---------------------------- CARRITO DE COMPRAS ----------------------------*/
 
-/*-----SI EXISTE UN CARRITO, LO TRAIGO CON GET ITEM, SI NO, LO CREO-----*/
+/*-- SI EXISTE UN CARRITO, LO TRAIGO CON GET ITEM, SI NO, LO CREO ---*/
 var carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
 const guardarCarrito = () => {
@@ -168,9 +194,10 @@ const guardarCarrito = () => {
 };
 
 
-/*----- Imprimir productos agregados al carrito en el dom -----*/
+/*-- Imprimir productos agregados al carrito en el dom --*/
 
 const cartContent = document.getElementById('cartContainer')
+
 function showCartItems() {
     cartContent.innerHTML = '';
     carrito.forEach((productos) => {
@@ -181,7 +208,7 @@ function showCartItems() {
                 <img src= ${productos.thumbnail} alt="foto de ${productos.nombre}"></img>
                 <div class="card-body">
                     <h2 id="name">${productos.nombre}</h2>
-                    <p id="price">USD: ${productos.price}</p>
+                    <p id="price">USD: ${productos.price * productos.cantidad} | Cantidad: ${productos.cantidad} </p>  
                 </div>`
             ;
 
@@ -194,11 +221,27 @@ function showCartItems() {
         cartContent.append(cartItem);
 
         eliminar.addEventListener("click", () => {
+
             const foundID = carrito.find((element) => element.id === productos.id);
 
-            carrito = carrito.filter((carritoID) => {
-                return carritoID !== foundID;
-            })
+            const productoRepetido = carrito.some((productoRepe) => productoRepe.id === productos.id);
+
+            if (productoRepetido) {
+                carrito.map((prod) => {
+                    if (prod.id === productos.id) {
+                        if (prod.cantidad > 0) {
+                            prod.cantidad = prod.cantidad - 1;
+                        } else
+                            if (prod.cantidad === 0) {
+
+                                carrito = carrito.filter((carritoID) => {
+                                    return carritoID !== foundID;
+                                });
+                            }
+                    }
+                })
+            }
+
             alertaEliminadoDelCarrito()
             guardarCarrito();
             showCartItems();
@@ -225,16 +268,16 @@ function alertaAgregadoAlCarrito() {
 // Producto eliminado del carrito
 function alertaEliminadoDelCarrito() {
     Toastify({
-      text: "Producto eliminado del carrito!",
-      duration: 3000,
-      close: true,
-      gravity: "bottom",
-      position: "right",
-      stopOnFocus: false,
-      style: {
-        background: "linear-gradient(0deg, #a71414 0%, #f76464 100%)",
-      },
-  }).showToast();
+        text: "Producto eliminado del carrito!",
+        duration: 3000,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: false,
+        style: {
+            background: "linear-gradient(0deg, #a71414 0%, #f76464 100%)",
+        },
+    }).showToast();
 }
 
 
