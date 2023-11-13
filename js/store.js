@@ -228,3 +228,26 @@ function alertaEliminadoDelCarrito() {
         },
     }).showToast();
 }
+
+/*---------------------------- DARK MODE ----------------------------*/
+
+const toggleTheme = document.querySelector('#theme');
+ toggleTheme.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggleTheme.classList.toggle('dark');
+
+ // Guardo el tema del usuario en el local
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem('dark-theme' , 'true')     
+    }else {
+    localStorage.setItem('dark-theme' , 'false')}
+
+ })
+
+ // Cargo el tema del usuario
+
+ if (localStorage.getItem('dark-theme') === 'true') {
+    document.body.classList.add('dark');
+ } else {
+    document.body.classList.remove('dark');
+ }
