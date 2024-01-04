@@ -1,11 +1,19 @@
 {
   "name": "entrega-sass",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Juan Ignacio Punte",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juanigpunte/Coderhouse-Javascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Juanigpunte/Coderhouse-Javascript/issues"
+  },
+  "homepage": "https://github.com/Juanigpunte/Coderhouse-Javascript#readme",
+  "description": ""
 }

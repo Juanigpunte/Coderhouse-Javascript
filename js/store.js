@@ -1,7 +1,7 @@
 /*---------------------------- MIS PRODUCTOS ----------------------------*/
 
 // Productos almacenados en archivo JSON
-const url = "../js/productos.json";
+const url = "./js/productos.json";
 
 fetch(url)
   .then(response => response.json())
@@ -9,6 +9,7 @@ fetch(url)
     localStorage.setItem('stock', JSON.stringify(data.productos));
   })
   .catch(error => console.error(error));
+
 
 
 // Enviar y devolver lista de productos del almacenamiento local

@@ -28,6 +28,7 @@ const Card = (props) => {
     let { id, nombre, price, thumbnail } = props;
     let div = document.createElement('div');
     div.setAttribute('class', 'card-content');
+    div.classList.add('card-hero');
   
     div.innerHTML = `
       <img src= ${thumbnail} alt="foto de ${nombre}"></img>

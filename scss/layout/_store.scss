@@ -13,6 +13,7 @@
       justify-content: space-around;
       padding: 28px;
       background: #e0e0e0;
+      margin-top: 20px;
       margin-bottom: 20px;
 
       img {
@@ -35,6 +36,11 @@
           }
       }
 
+      button {
+        border-radius: 15px;
+        background-color: aliceblue;
+      }
+
   }
 
 
@@ -42,7 +48,7 @@
       height: 100%;
 
       div h2 {
-          font-size: 28px;
+          font-size: 22px;
       }
   }
 

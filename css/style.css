@@ -11,7 +11,7 @@ body.dark {
 
 .productos {
   display: flex;
-  height: 90vh;
+  height: auto;
   width: 90%;
   margin-right: auto;
   margin-left: auto;
@@ -121,7 +121,7 @@ body.dark .btn-close {
 .filter-container {
   display: flex;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 70px;
   margin-bottom: 20px;
   gap: 20px;
   justify-content: center;
@@ -140,7 +140,7 @@ body.dark .btn-close {
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 .filter-button:hover {
-  border: 1px solid white;
+  border: 1px solid #212121;
 }
 .filter-button:active {
   border: 1px solid white;
@@ -153,10 +153,11 @@ body.dark .filter-button {
   box-shadow: 10px 10px 25px rgb(25, 25, 25), -10px -10px 25px rgb(60, 60, 60);
 }
 body.dark .filter-button:active {
-  border: 1px solid #000000;
+  border: 1px solid #f7f9fa;
+  box-shadow: 4px 4px 12px #212121, -4px -4px 12px #212121;
 }
 body.dark .filter-button:hover {
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #f4c21c;
 }
 
 #boton {
@@ -164,7 +165,7 @@ body.dark .filter-button:hover {
 }
 
 .theme-checkbox {
-  --toggle-size: 16px;
+  --toggle-size: 12px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -229,10 +230,15 @@ body.dark .filter-button:hover {
   background-color: white;
 }
 
+.card-hero h2 {
+  font-size: 25px;
+}
+
 .card-content {
+  margin-top: 38px;
   flex-direction: column;
-  height: 460px;
-  width: 300px;
+  height: auto;
+  width: 230px;
   padding: 20px;
   display: flex;
   background: #e0e0e0;
@@ -244,7 +250,8 @@ body.dark .card-content {
   background: #212121;
   box-shadow: 10px 10px 25px rgb(25, 25, 25), -10px -10px 25px rgb(60, 60, 60);
 }
-body.dark .card-content h2, body.dark .card-content p {
+body.dark .card-content h2,
+body.dark .card-content p {
   color: aliceblue;
 }
 .card-content img {
@@ -348,6 +355,11 @@ nav div a img:hover {
   transform: scale(1.1, 1.1);
 }
 
+body.dark .btn-close {
+  filter: var(--bs-btn-close-white-filter);
+  --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%)!important;
+}
+
 nav div a {
   font-size: 26px;
   list-style: none;
@@ -357,10 +369,15 @@ nav div a {
   transition: 0.2s;
 }
 nav div a:hover {
-  color: rgb(158, 105, 0);
+  color: rgb(165, 145, 30);
+  text-decoration: solid;
 }
 body.dark nav div a {
   color: aliceblue;
+}
+body.dark nav div a:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 5px 5px 20px #bebebe, -5px -5px 20px #ffffff;
 }
 
 .offcanvas-title {
@@ -374,6 +391,9 @@ body.dark .offcanvas-title {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.29);
 }
 
+.navcolor {
+  padding: 20px;
+}
 body.dark .navcolor {
   background-color: #212121;
 }
@@ -387,6 +407,9 @@ body.dark .bg-custom {
 
 body.dark .navbar-toggler {
   border: aliceblue solid 1px;
+}
+body.dark .navbar-toggler:hover {
+  box-shadow: 2px 2px 15px #bebebe, -2px -2px 15px #ffffff;
 }
 .navbar-toggler:focus:not(:focus-visible) {
   outline: 0px;
@@ -432,14 +455,14 @@ body.dark .bi-cart {
   justify-content: center;
 }
 #cotizacion p {
-  font-size: 25px;
+  font-size: 23px;
   color: rgb(253, 253, 253);
   display: flex;
 }
 #cotizacion span {
   align-items: baseline;
   display: flex;
-  font-size: 25px;
+  font-size: 24px;
   color: rgb(255, 255, 255);
   font-weight: 600;
 }
@@ -451,6 +474,7 @@ body.dark .bi-cart {
 }
 
 .container-dolar {
+  margin-top: 70px;
   justify-content: center;
   border: 1px solid #000000;
   width: 80%;
@@ -481,7 +505,7 @@ body.dark .bi-cart {
 .colorcust p {
   margin: auto;
   padding: 8px;
-  font-size: 25px;
+  font-size: 22px;
   color: rgb(0, 0, 0);
   display: flex;
   font-weight: 600;
@@ -503,6 +527,7 @@ body.dark .bi-cart {
   justify-content: space-around;
   padding: 28px;
   background: #e0e0e0;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .cart-container img {
@@ -521,12 +546,16 @@ body.dark .cart-container {
 body.dark .cart-container h2, body.dark .cart-container p {
   color: aliceblue;
 }
+.cart-container button {
+  border-radius: 15px;
+  background-color: aliceblue;
+}
 
 #root {
   height: 100%;
 }
 #root div h2 {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .store-header {
